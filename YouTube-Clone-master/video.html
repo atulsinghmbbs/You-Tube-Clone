@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+            display: flex;
+            margin: -7px -7px 0px -7px;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            background: #fff;
+            
+            height: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            
+            
+            
+        }
+        img{
+            cursor: pointer;
+        }
+       
+        #first{
+            display: flex;
+            width: 160px;
+            height: 40px;
+            justify-content: space-between;
+            margin-left: 20px;
+            padding-top: 8px;
+            box-sizing: border-box;
+        }
+        #logo{
+            width: 100px;
+            height: 25px;
+        }
+        img{
+            height: 30px;
+        }
+        #middle{
+            width: 650px;
+            height: 40px;
+            
+            margin: 5px 160px 0px 160px;
+            display: flex;
+        }
+        #query{
+            
+            border: 1px solid #ccc;
+            width: 80%;
+            height: 35px;
+            outline: 0px;
+            
+        }
+        
+        #last{
+            display: flex;
+            width: 260px;
+            height: 40px;
+            justify-content: space-evenly;
+            padding-top: 10px;
+            box-sizing: border-box;
+            margin-right: 18px;
+        }
+        #last>img{
+            height: 30px;
+        }
+        #middle>button{
+            margin: 0px 10px 0px -4px;
+        }
+        #sbtn{
+            background-color: #f8f8f8;
+            width: 10%;
+            border: 1px solid #ccc;
+            height: 97%;
+        }
+        #sbtn>img{
+            width: 50%;
+            height: 65%;
+        }
+        #voiceimg{
+            margin-top: 5px;
+            margin-left: 8px;
+            border-radius: 50px;
+        }
+        .propic{
+            border-radius: 50px;
+        }
+        #div{
+            width: 885px;
+            height: 570px;
+        }
+        #showvideo{
+            display: flex;
+            gap: 20px;
+            background-color: #f9f9f9;
+            padding-top: 28px;
+        }
+        #rightdiv{
+            display: flex;
+        }
+        #rightdiv img{
+            width: 187px;
+            height: 100%;
+        }
+        #videoplaying{
+            margin-left: 20px;
+        }
+        #rightside{
+            overflow-y: scroll;
+            height: 550px;
+        }
+        #rightside div{
+            height: 110px;
+            margin-bottom: 10px;
+            
+        }
+        #name{
+            margin-top: 0px;
+            font-size: 13px;
+        }
+        .name{
+            margin-top: -15px;
+            font-size: 12px;
+            color: #5a5a5a;
+            
+        }
+        #div2{
+            padding-left: 10px;
+        }
+        .title{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div id="first">
+            <img id="menuicon" src="align-justify.svg">
+            <img id="logo" src="logo.png">
+        </div>
+        <div id="middle">
+            
+                <input placeholder="search" oninput="search(main,500)" type="text" id="query">
+                <button id="sbtn" onclick="seachVideos()"><img id="searchimg" src="search (1).png" alt=""></button>
+                <img id="voiceimg" src="voice-search.png" alt="">
+            
+        </div>
+        <div id="last">
+            <img src="video.png" alt="">
+            <img src="grid.png" alt="">
+            <img src="bell.png" alt="">
+            <img class="propic" src="photo_2022-01-30_11-30-52.jpg" alt="">
+        </div>
+    </div>    
+    <div id="showvideo">
+        <div id="videoplaying"></div>
+        <div id="rightside"></div>
+    </div>
+</body>
+</html>
+
+<script src="video.js"></script>

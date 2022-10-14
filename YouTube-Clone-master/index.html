@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>YouTube</title>
+    <style>
+        #navbar{
+            display: flex;
+            margin: -7px -7px 0px -7px;
+
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            background: #fff;
+            
+            height: 50px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            
+            
+            
+        }
+        img{
+            cursor: pointer;
+        }
+       
+        #first{
+            display: flex;
+            width: 160px;
+            height: 40px;
+            justify-content: space-between;
+            margin-left: 20px;
+            padding-top: 8px;
+            box-sizing: border-box;
+        }
+        #logo{
+            width: 100px;
+            height: 25px;
+        }
+        img{
+            height: 30px;
+        }
+        #middle{
+            width: 650px;
+            height: 40px;
+            
+            margin: 5px 160px 0px 160px;
+            display: flex;
+        }
+        #query{
+            
+            border: 1px solid #ccc;
+            width: 80%;
+            height: 35px;
+            outline: 0px;
+            
+        }
+        
+        #last{
+            display: flex;
+            width: 260px;
+            height: 40px;
+            justify-content: space-evenly;
+            padding-top: 10px;
+            box-sizing: border-box;
+            margin-right: 18px;
+        }
+        #last>img{
+            height: 30px;
+        }
+        #middle>button{
+            margin: 0px 10px 0px -4px;
+        }
+        #movies{
+            border: 1px solid black;
+            height: 200px;
+            width: 475px;
+            border-top: none;
+            overflow-y: scroll;
+            margin-left: 320px;
+            display: none;
+            position: absolute;
+            background-color: white;
+        }
+        #p:hover{
+            cursor: pointer;
+            font-weight: bolder;
+        }
+        #image{
+            width: 300px;
+            height: 300px;
+        }
+        #below{
+            display: flex;
+           
+        }
+        .sidebar{
+            width: 5%;
+            padding-left: 20px;
+            
+            font-size: 18px;
+            
+        }
+        .sidebar>a{
+            display: flex;
+            text-decoration: none;
+            
+            height: 42px;
+        }
+        .sidebar a p:first-child{
+            color: #ed3833;;
+        }
+        .sidebar a p{
+            color: #5a5a5a;
+        }
+        
+        .sidebar a img{
+            width: 24px;
+            height: 24px;
+            margin-right: 20px;
+            margin-top: 14px;
+        }
+        .sidebar>hr{
+            width: 180%;
+            border: 0px;
+            height: 1px;
+            background: #ccc;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            margin-left: 3px;            
+        }
+        #subscribed>a{
+            display: flex;
+            text-decoration: none;
+            height: 42px;
+        }
+        #subscribed a p{
+            color: #5a5a5a;
+            
+        }
+        #subscribed a img{
+            border-radius: 50px;
+        }
+        #subscribed>h3{
+            font-size: 14px;
+            color: #5a5a5a;
+            margin-top: 20px;
+            margin-bottom: 4px;
+        }
+
+        #show_videos{
+            padding-top: 28px;
+            padding-left: 25px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(5,266px);
+            gap: 40px 20px;
+            background-color: #f9f9f9;
+            margin-left: 100px;
+            
+        }
+        #show_videos>div{
+            font-size: 18px;
+        }
+        #show_videos #div1 img{
+            width: 100%;
+            height: 162px;
+            
+        }
+        .name{
+            margin-top: -16px;
+            font-size: 12px;
+            color: #5a5a5a;
+        }
+        #name{
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        #show_videos #div2{
+            display: flex;
+            
+        }
+        #div2 img{
+            width: 35px;
+            height: 35px;
+            margin-right: 10px;
+            margin-top: 5px;
+            border-radius: 50px;
+        }
+        #sbtn{
+            background-color: #f8f8f8;
+            width: 10%;
+            border: 1px solid #ccc;
+            height: 97%;
+        }
+        #sbtn>img{
+            width: 50%;
+            height: 65%;
+        }
+        #voiceimg{
+            margin-top: 5px;
+            margin-left: 8px;
+            border-radius: 50px;
+        }
+        .propic{
+            border-radius: 50px;
+        }
+        .small-sidebar{
+            width: 5%;
+            transition:all 0.3s ease;
+            
+        }
+        .small-sidebar a p{
+            display: none;
+        }
+        .small-sidebar h3{
+            display: none;
+        }
+        .small-sidebar>hr{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <div id="first">
+            <img id="menuicon" src="align-justify.svg">
+            <img id="logo" src="logo.png">
+        </div>
+        <div id="middle">
+            
+                <input placeholder="search" oninput="search(main,500)" type="text" id="query">
+                <button id="sbtn" onclick="seachVideos()"><img id="searchimg" src="search (1).png" alt=""></button>
+                <img id="voiceimg" src="voice-search.png" alt="">
+            
+        </div>
+        <div id="last">
+            <img src="video.png" alt="">
+            <img src="grid.png" alt="">
+            <img src="bell.png" alt="">
+            <img class="propic" src="Atul_singh.png" alt="">
+        </div>
+    </div>    
+    <div id="movies"></div>
+    <div id="below">
+        <div class="sidebar">
+            <a href=""><img src="home.png" alt=""><p>Home</p></a>
+            <a href=""><img src="explore.png" alt=""><p>Explore</p></a>
+            <a href=""><img src="subscriprion.png" alt=""><p>Subscription</p></a>
+            <a href=""><img src="library.png" alt=""><p>Library</p></a>
+            <a href=""><img src="history.png" alt=""><p>History</p></a>
+            <a href=""><img src="playlist.png" alt=""><p>Playlist</p></a>
+            <a href=""><img src="messages.png" alt=""><p>Messages</p></a>
+            <a href=""><img src="show-more.png" alt=""><p>Show-more</p></a>
+            <hr>
+            <div id="subscribed">
+                <h3>SUBSCRIBED</h3>
+                <a href=""><img src="channels4_profile (1).jpg" alt=""><p>Apna College</p></a>
+                <a href=""><img src="channels4_profile (2).jpg" alt=""><p>BigBrainco.</p></a>
+                <a href=""><img src="channels4_profile (3).jpg" alt=""><p>Warikoo</p></a>
+                <a href=""><img src="channels4_profile.jpg" alt=""><p>BeerBiceps</p></a>
+                <a href=""><img src="unnamed.jpg" alt=""><p>Abhi and Niyu</p></a>
+            </div>
+        </div>
+        
+        <div id="show_videos"></div>
+    </div>
+
+
+</body>
+</html>
+
+<script src="index.js"></script>
+
+
+<!-- <iframe width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/E-HW4bdfmEI" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; 
+    autoplay; clipboard-write; 
+    encrypted-media; gyroscope; 
+    picture-in-picture" 
+    allowfullscreen></iframe> -->

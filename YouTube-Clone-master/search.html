@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div{
+            display: flex;
+        }
+        #div2{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>welcome</h1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+    let container = document.getElementById("container");
+
+    const getvideos = JSON.parse(localStorage.getItem("data"));
+    let i = 0;
+    console.log(getvideos)
+
+    getvideos.map(({id: {videoId}, snippet: {title,description,thumbnails:{medium:{url}}}}) =>{
+        console.log(videoId)
+        let arr1 = [];
+        let div = document.createElement("div");
+        div.setAttribute("id","div")
+        let div1 = document.createElement("div");
+        let div2 = document.createElement("div");
+        div2.setAttribute("id","div2")
+        let image = document.createElement("img");
+        image.src=url;
+        let iframe = document.createElement("iframe");
+        iframe.src=`https://www.youtube.com/embed/${videoId}`;
+
+        iframe.width="100%";
+        iframe.height="100%";
+        iframe.allow = "fullscreen"
+        iframe.append(image)
+        let name = document.createElement("h5");
+        name.innerText=title;
+        let caption = document.createElement("h5");
+        caption.innerText=description;
+        arr1.push(getvideos[i++])
+        div.onclick = ()=>{
+            showvideo(arr1)
+        }
+        div1.append(iframe);
+        div2.append(name,description);
+        div.append(div1,div2)
+        container.append(div)
+    })
+
+    const showvideo = (x)=>{
+        window.location.href="video.html";
+        localStorage.setItem("video", JSON.stringify(x))
+    }
+</script>
