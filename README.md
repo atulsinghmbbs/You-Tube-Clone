@@ -7,11 +7,11 @@
 <br>
 
 <h2>You can also search the any video whatever you want to see. in serach option you can see the debouncing feature.</h2>
-<img src="image/you-tube-search.png"/>
+<img src="./YouTube-Clone-master/image/you-tube-search.png"/>
 
 <h2>you can watch the video without any ad interruption.</h2>
-<img src="image/youtube-video.png"/>.
+<img src="./YouTube-Clone-master/image/youtube-video.png"/>.
 
 <h2>This YouTube will also recommend the videos.</h2>
-<img src="image/youTube-recommendation.png"/>
+<img src="./YouTube-Clone-master/image/youTube-recommendation.png"/>
 
